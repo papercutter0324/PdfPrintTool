@@ -12,6 +12,10 @@ enum ScalingMode: String, ExpressibleByArgument {
     case fit
     case actual
     
+    init?(argument: String) {
+        self.init(rawValue: argument.lowercased())
+    }
+    
     var pdfScaling: PDFPrintScalingMode {
         switch self {
         case .fit: return .pageScaleToFit
