@@ -13,7 +13,6 @@ enum PaperSize: String, ExpressibleByArgument {
     case b0, b1, b2, b3, b4, b5, b6, b7, b8, b9, b10
     case c0, c1, c2, c3, c4, c5, c6, c7, c8, c9, c10
     case letter, legal, tabloid, ledger, executive, statement
-    case photo4x6, photo5x7, photo8x10
     case pdf
     
     init?(argument: String) {
@@ -66,11 +65,6 @@ enum PaperSize: String, ExpressibleByArgument {
         case .ledger: return NSSize(width: 1224.0, height: 792.0)
         case .executive: return NSSize(width: 522.0, height: 756.0)
         case .statement: return NSSize(width: 396.0, height: 612.0)
-
-        // Common photo sizes
-        case .photo4x6: return NSSize(width: 288.0, height: 432.0)
-        case .photo5x7: return NSSize(width: 360.0, height: 504.0)
-        case .photo8x10: return NSSize(width: 576.0, height: 720.0)
         
         // Use internal pdf size
         case .pdf: return nil
