@@ -13,9 +13,15 @@ struct PDFPrintTool: ParsableCommand {
     // MARK: - Configuration
     
     static let configuration = CommandConfiguration(
-        commandName: "PDFPrintTool",
+        commandName: "PdfPrintTool",
         abstract: "Print PDF files silently to a specified printer.",
-        version: "2.1.0"
+        discussion: """
+        Examples:
+          PDFPrintTool -f "/path/to/file1.pdf,/path/to/file2.pdf" -d "HP LaserJet" -s fit -p A4
+          PDFPrintTool -f "/path/to/file1.pdf" -f "/path/to/file2.pdf" -d "HP LaserJet" -s actual --fast-fail
+          PDFPrintTool --File="/path/to/file.pdf" --Printer="HP LaserJet" --Scaling=actual --papersize=pdf
+        """,
+        version: "2.1.0 (Build: 12)"
     )
     
     // MARK: - Options
@@ -40,13 +46,13 @@ struct PDFPrintTool: ParsableCommand {
     
     @Option(
         name: [.customShort("p"), .long],
-        help: "Paper size (A4, Letter, Legal, pdf, etc.)."
+        help: "Paper size (A4, B5, Letter, pdf, etc.)."
     )
     var papersize: PaperSize = .pdf
     
     @Flag(
         name: [.long],
-        help: "Exit immediately on first error."
+        help: "Exit immediately on error"
     )
     var fastFail: Bool = false
     
