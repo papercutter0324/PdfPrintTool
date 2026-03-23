@@ -11,6 +11,6 @@ struct CLIOptions {
     let pdfPaths: [String]
     let printerName: String
     let scaling: ScalingMode
-    let paperSize: PaperSize
+    let paper: Paper
     let fastFail: Bool
 }

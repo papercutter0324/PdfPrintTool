@@ -21,7 +21,7 @@ struct PDFPrintTool: ParsableCommand {
           PDFPrintTool -f "/path/to/file1.pdf" -f "/path/to/file2.pdf" -d "HP LaserJet" -s actual --fast-fail
           PDFPrintTool --File="/path/to/file.pdf" --Printer="HP LaserJet" --Scaling=actual --papersize=pdf
         """,
-        version: "2.1.0 (Build: 12)"
+        version: "2.1.0 (Build: 14)",
     )
     
     // MARK: - Options
@@ -42,13 +42,13 @@ struct PDFPrintTool: ParsableCommand {
         name: [.customShort("s"), .customLong("scaling")],
         help: "Scaling mode: fit or actual."
     )
-    var scaling: ScalingMode
+    var scaling: ScalingMode = .fit
     
     @Option(
         name: [.customShort("p"), .long],
         help: "Paper size (A4, B5, Letter, pdf, etc.)."
     )
-    var papersize: PaperSize = .pdf
+    var paper: Paper = .pdf
     
     @Flag(
         name: [.long],
@@ -73,7 +73,7 @@ struct PDFPrintTool: ParsableCommand {
             pdfPaths: pdfPaths,
             printerName: printer,
             scaling: scaling,
-            paperSize: papersize,
+            paper: paper,
             fastFail: fastFail
         )
         

@@ -53,7 +53,7 @@ final class PrintManager {
             throw PrintError.invalidPDF(path)
         }
         
-        let size = options.paperSize.size ?? firstPage.bounds(for: .mediaBox).size
+        let size = options.paper.size ?? firstPage.bounds(for: .mediaBox).size
         printInfo.paperSize = size
         
         guard let op = doc.printOperation(
