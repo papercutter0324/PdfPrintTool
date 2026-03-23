@@ -1,13 +1,13 @@
 //
-//  PrinterResolver.swift
+//  PrinterNameResolver.swift
 //  PdfPrintTool
 //
-//  Created by Warren Feltmate on 3/18/26.
+//  Created by Warren Feltmate on 3/23/26.
 //
 
 import AppKit
 
-enum PrinterResolver {
+enum PrinterNameResolver {
     
     static func resolve(named name: String) -> NSPrinter? {
         

@@ -19,7 +19,7 @@ final class PrintManager {
     
     func run() throws {
         
-        guard let printer = PrinterResolver.resolve(named: options.printerName) else {
+        guard let printer = PrinterNameResolver.resolve(named: options.printerName) else {
             throw PrintError.printerNotFound(options.printerName)
         }
         
